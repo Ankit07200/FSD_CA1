@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Karnataka</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f7f2;
+    color:#333;
+}
+
+header{
+    background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+    url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee');
+    background-size:cover;
+    background-position:center;
+    min-height:100vh;
+    color:white;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 0;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:bold;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+}
+
+.hero{
+    text-align:center;
+    padding:220px 0;
+}
+
+.hero h1{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.btn{
+    padding:12px 25px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    margin:5px;
+}
+
+.dark{
+    background:#222;
+    color:white;
+}
+
+.light{
+    background:white;
+    color:black;
+}
+
+section{
+    padding:70px 0;
+}
+
+h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.search-box{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.search-box input{
+    width:300px;
+    max-width:100%;
+    padding:10px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+}
+
+.gallery img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+form{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    max-width:600px;
+    margin:auto;
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+form input,
+form select{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+}
+
+.total{
+    font-size:22px;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+.testimonial{
+    background:white;
+    padding:20px;
+    margin-bottom:15px;
+    border-radius:10px;
+}
+
+footer{
+    background:#111;
+    color:#ddd;
+    text-align:center;
+    padding:40px;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.9);
+    z-index:1000;
+}
+
+.modal img{
+    display:block;
+    max-width:80%;
+    max-height:80%;
+    margin:60px auto;
+}
+
+.close{
+    color:white;
+    position:absolute;
+    right:30px;
+    top:20px;
+    font-size:40px;
+    cursor:pointer;
+}
+
+#location{
+    text-align:center;
+    margin-top:15px;
+    font-weight:bold;
+}
+
+@media(max-width:768px){
+    .hero h1{
+        font-size:40px;
+    }
+
+    nav{
+        flex-direction:column;
+        gap:10px;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container">
+
+<nav>
+<div class="logo">TRAVEL KARNATAKA</div>
+
+<div>
+<a href="#destinations">Destinations</a>
+<a href="#booking">Booking</a>
+<a href="#gallery">Gallery</a>
+</div>
+</nav>
+
+<div class="hero">
+<h1>Explore Karnataka</h1>
+<p>Book amazing trips and discover beautiful destinations.</p>
+<a href=#destinations><button class="btn dark">Explore</button></a>
+<a href=#booking><button class="btn light">Book Now</button></a>
+</div>
+
+</div>
+</header>
+
+<main>
+
+<section id="destinations">
+
+<div class="container">
+
+<h2>Popular Destinations</h2>
+
+<div class="search-box">
+<input type="text" id="search" placeholder="Search destination">
+</div>
+
+<div class="cards" id="destinationCards">
+
+<article class="card">
+<img src="https://images.unsplash.com/photo-1560357647-62a43d9897bb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29vcmd8ZW58MHx8MHx8fDA%3D">
+<div class="card-content">
+<h3>Coorg</h3>
+<p>Beautiful coffee plantations and hills.</p>
+</div>
+</article>
+
+<article class="card">
+<img src="https://images.unsplash.com/photo-1659126574791-13313aa424bd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bXlzb3JlfGVufDB8fDB8fHww">
+<div class="card-content">
+<h3>Mysore</h3>
+<p>The cultural capital, famous for the opulent Mysore Palace, intricate temples, and vibrant local markets.</p>
+</div>
+</article>
+
+<article class="card">
+<img src="https://images.unsplash.com/photo-1596018382916-56d2e341d784?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGhhbXBpfGVufDB8fDB8fHww">
+<div class="card-content">
+<h3>Hampi</h3>
+<p>A UNESCO World Heritage site featuring breathtaking, sprawling ruins, ancient temples, and boulder-strewn landscapes from the Vijayanagara Empire.</p>
+</div>
+</article>
+
+<article class="card">
+<img src="https://images.unsplash.com/photo-1739038034791-a60471396db0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hpa21hZ2FsdXJ8ZW58MHx8MHx8fDA%3D">
+<div class="card-content">
+<h3>Chikmagalur</h3>
+<p>Nestled in the Mullayanagiri range, this is the coffee capital of Karnataka, perfect for trekking and tranquil getaways.</p>
+</div>
+</article>
+
+<article class="card">
+<img src="https://images.unsplash.com/photo-1519046904884-53103b34b206">
+<div class="card-content">
+<h3>Udupi</h3>
+<p>Famous beaches and temples.</p>
+</div>
+</article>
+
+<article class="card">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+<div class="card-content">
+<h3>Mangalore</h3>
+<p>Historic coastal city.</p>
+</div>
+</article>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="booking">
+
+<div class="container">
+
+<h2>Book Your Trip</h2>
+
+<form id="bookingForm">
+
+<input
+type="text"
+id="name"
+placeholder="Enter Name"
+required>
+
+<input
+type="email"
+id="email"
+placeholder="Enter Email"
+required>
+
+<input
+type="tel"
+id="phone"
+placeholder="10 Digit Mobile"
+pattern="[0-9]{10}"
+required>
+
+<input
+type="date"
+id="date"
+required>
+
+<select id="package">
+<option value="3000">Mangalore - ₹3000</option>
+<option value="4000">Coorg - ₹4000</option>
+<option value="5000">Udupi - ₹5000</option>
+</select>
+
+<input
+type="number"
+id="travellers"
+placeholder="Number of Travellers"
+min="1"
+value="1">
+
+<div class="total">
+Total Cost: ₹<span id="total">3000</span>
+</div>
+
+<button class="btn dark" type="submit">
+Book Trip
+</button>
+
+</form>
+
+<p id="location"></p>
+
+</div>
+
+</section>
+
+<section id="gallery">
+
+<div class="container">
+
+<h2>Travel Gallery</h2>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dHJhdmVsJTIwZ3JvdXB8ZW58MHx8MHx8fDA%3D">
+<img src="https://images.unsplash.com/photo-1536607961765-592e80bcc19e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyYXZlbCUyMGdyb3VwfGVufDB8fDB8fHww">
+<img src="https://images.unsplash.com/photo-1464207687429-7505649dae38?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRyYXZlbCUyMGdyb3VwfGVufDB8fDB8fHww">
+<img src="https://media.istockphoto.com/id/2149306940/photo/friends-dancing-and-having-fun-on-the-beach.webp?a=1&b=1&s=612x612&w=0&k=20&c=KZoMQJWQMmXc-Zb7nfc9ECV4bp--NQyCfpvNhw4r848=">
+<img src="https://media.istockphoto.com/id/1134241228/photo/group-picture-next-to-keralan-tea-plantations.webp?a=1&b=1&s=612x612&w=0&k=20&c=roTWqMtsRpSYh197TWEyN_S5UOV1aiakm4YUb_AkWI0=">
+<img src="https://images.unsplash.com/photo-1599828586134-fbaff96c63d5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzF8fHRyYXZlbCUyMGdyb3VwfGVufDB8fDB8fHww">
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<h2>Testimonials</h2>
+
+<div class="testimonial">
+Wonderful experience and great service.
+</div>
+
+<div class="testimonial">
+Affordable packages and memorable trips.
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+<h3>Travel Karnataka</h3>
+<p>Email: travel@gmail.com</p>
+<p>Phone: +91 9876543210</p>
+<p>© 2026 Travel Karnataka</p>
+</footer>
+
+<div class="modal" id="modal">
+<span class="close">&times;</span>
+<img id="modalImg">
+</div>
+
+<script>
+
+// Search Feature
+document.getElementById("search")
+.addEventListener("keyup",function(){
+
+let value=this.value.toLowerCase();
+
+document
+.querySelectorAll(".card")
+.forEach(card=>{
+
+card.style.display=
+card.innerText.toLowerCase().includes(value)
+? "block"
+: "none";
+
+});
+
+});
+
+// Price Calculator
+const packageSelect=
+document.getElementById("package");
+
+const travellers=
+document.getElementById("travellers");
+
+function calculateTotal(){
+
+let total=
+packageSelect.value * travellers.value;
+
+document.getElementById("total")
+.innerText=total;
+
+}
+
+packageSelect.addEventListener("change",calculateTotal);
+travellers.addEventListener("input",calculateTotal);
+
+// Booking Form
+document.getElementById("bookingForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const name=
+document.getElementById("name").value;
+
+localStorage.setItem(
+"lastBooking",
+name
+);
+
+alert(
+"Booking Successful for " + name
+);
+
+});
+
+// Geolocation API
+if(navigator.geolocation){
+
+navigator.geolocation
+.getCurrentPosition(function(position){
+
+document.getElementById("location")
+.innerText=
+"Latitude: " +
+position.coords.latitude.toFixed(2) +
+" | Longitude: " +
+position.coords.longitude.toFixed(2);
+
+});
+
+}
+
+// Gallery Modal
+const modal=
+document.getElementById("modal");
+
+const modalImg=
+document.getElementById("modalImg");
+
+document
+.querySelectorAll(".gallery img")
+.forEach(img=>{
+
+img.onclick=function(){
+
+modal.style.display="block";
+modalImg.src=this.src;
+
+};
+
+});
+
+document
+.querySelector(".close")
+.onclick=function(){
+
+modal.style.display="none";
+
+};
+
+modal.onclick=function(e){
+
+if(e.target===modal){
+
+modal.style.display="none";
+
+}
+
+};
+
+</script>
+
+</body>
+</html>
